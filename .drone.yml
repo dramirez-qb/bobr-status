@@ -32,8 +32,6 @@ steps:
       repo: dxas90/bobr-status
       dockerfile: Dockerfile
       registry: harbor.dxas90.xyz
-    depends_on:
-      - Run chart-testing (lint)
 
 image_pull_secrets:
   - dockerconfig
