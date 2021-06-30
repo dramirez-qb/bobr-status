@@ -1,4 +1,4 @@
-# bobr-status
+# bobr-status  [![Build Status](https://drone.dxas90.xyz/api/badges/dxas90/bobr-status/status.svg)](https://drone.dxas90.xyz/dxas90/bobr-status)
 
 ## Table of Contents
 
