@@ -15,7 +15,7 @@ steps:
     commands:
       - git fetch --tags
       - rm -f .tags
-      - printf "%s\n" $(git describe --abbrev=0 --tags) >> .tags
+      - printf "%s\n" $(git describe --abbrev=0 --tags || echo $DRONE_BRANCH ) > .tags
       - printf "Tags to build\n-------------\n%s\n" $(cat .tags)
 
   - name: Go image (build)
