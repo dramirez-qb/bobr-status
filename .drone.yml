@@ -15,11 +15,11 @@ steps:
     commands:
       - git fetch --tags
       - rm -f .tags
-      - printf "%s\n" $(git describe --abbrev=0 --tags) >> .tags
+      - printf "%s\n" $(git describe --abbrev=0 --tags || echo $DRONE_BRANCH | tr '/' '-') > .tags
       - printf "Tags to build\n-------------\n%s\n" $(cat .tags)
 
   - name: Go image (build)
-    image: plugins/kaniko
+    image: banzaicloud/drone-kaniko
     settings:
       skip_tls_verify: false # set to true for testing registries ONLY with self-signed certs
       build_args:
@@ -32,8 +32,6 @@ steps:
       repo: dxas90/bobr-status
       dockerfile: Dockerfile
       registry: harbor.dxas90.xyz
-    depends_on:
-      - Run chart-testing (lint)
 
 image_pull_secrets:
   - dockerconfig
