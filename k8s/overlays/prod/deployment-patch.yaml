@@ -1,0 +1,14 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bobr-status
+spec:
+  replicas: 2
+  template:
+    spec:
+      containers:
+        - name: bobr-status
+          env:
+            - name: ENVIRONMENT
+              value: prod
