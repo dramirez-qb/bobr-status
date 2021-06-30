@@ -26,7 +26,7 @@ endif
 .PHONY: version
 
 container-%:
-	@docker build -t $(DOCKER_REPO)/$(APP_NAME):$(firstword $(subst _, ,$*))-${VERSION} -f docker/$(firstword $(subst _, ,$*)).dockerfile .
+	@docker build -t $(DOCKER_REPO)/$(APP_NAME):$(firstword $(subst _, ,$*))-${VERSION} .
 
 push-%:
 	@docker push $(DOCKER_REPO)/$(APP_NAME):$(firstword $(subst _, ,$*))-${VERSION}
