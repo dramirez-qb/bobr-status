@@ -19,7 +19,7 @@ steps:
       - printf "Tags to build\n-------------\n%s\n" $(cat .tags)
 
   - name: Go image (build)
-    image: plugins/kaniko
+    image: banzaicloud/drone-kaniko
     settings:
       skip_tls_verify: false # set to true for testing registries ONLY with self-signed certs
       build_args:
